@@ -2,8 +2,8 @@
 
 namespace Spatie\Ray\Tests;
 
-use PHPUnit\Framework\TestCase;
 use Spatie\Ray\Ray;
+use PHPUnit\Framework\TestCase;
 use Spatie\Ray\Settings\SettingsFactory;
 
 class SettingsTest extends TestCase
@@ -21,9 +21,8 @@ class SettingsTest extends TestCase
     public function it_can_find_the_settings_file()
     {
         $this->skipOnGitHubActions();
-        ;
 
-        $settings = SettingsFactory::createFromConfigFile(__DIR__ . Ray::makePathOsSafe('/testSettings/subDirectory/subSubDirectory'));
+        $settings = SettingsFactory::createFromConfigFile(__DIR__ . Ray::makePathOsSafe('/testSettings'));
 
         $this->assertEquals(12345, $settings->port);
         $this->assertEquals('http://otherhost', $settings->host);
